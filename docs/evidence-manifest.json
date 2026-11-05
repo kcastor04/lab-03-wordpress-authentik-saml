@@ -1,0 +1,572 @@
+{
+  "repository": "lab-03-wordpress-authentik-saml",
+  "status": "Client review",
+  "source": {
+    "title": "Hands-On IAM Labs - Lab 3: Setting Up Single Sign-On",
+    "author": "Andrew",
+    "organization": "All Things Identity",
+    "guide_version": "V14",
+    "screens_captured_on": "Authentik 2026.8.5, November 2026",
+    "file_name": "first.pdf (identical copy supplied as first_1.pdf; same SHA-256)",
+    "pages": 36,
+    "figures_in_source": 52,
+    "sha256": "72de0adcaf9f83e8fb263c5515fdb156790beb088fd09736be75a5fdeff17201"
+  },
+  "evidence_scope": "All screenshots are the guide author's example screenshots. They illustrate the expected configuration and results and are not independent evidence that the portfolio owner executed the lab.",
+  "redactions_applied": [],
+  "redaction_summary": "No redaction was needed in the selected screenshots. Environment addresses already appear as placeholders in the source. Figure 3.45 (MFA QR enrollment) and Figure 3.37 (password dialog) were excluded rather than redacted.",
+  "screenshots": [
+    {
+      "file": "assets/screenshots/step-01-plugin-search.png",
+      "source_pdf_page": 5,
+      "figure": "3.2",
+      "source_caption": "This is the right plugin. The SAML IDP card further down does the reverse job, so leave it alone.",
+      "dimensions_px": [
+        1300,
+        792
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "56e16e730fb72974c2f814a85f1783c7f5712b39b8bcd9e1b29287d874c1b91d"
+    },
+    {
+      "file": "assets/screenshots/step-02-sp-metadata-tab.png",
+      "source_pdf_page": 8,
+      "figure": "3.5",
+      "source_caption": "The SP values live on a tab across the top, not in the left menu.",
+      "dimensions_px": [
+        1300,
+        780
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "2dc278f133ca83227a40b55e0fc253d904edc03a3145df8ce864aaae9423497e"
+    },
+    {
+      "file": "assets/screenshots/step-02-sp-values.png",
+      "source_pdf_page": 8,
+      "figure": "3.6",
+      "source_caption": "Your two values. The Audience URI below them is the same as the SP Entity ID, and the ACS URL is just the site root with a slash.",
+      "dimensions_px": [
+        1300,
+        550
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "98e2b4c3e579a955d5bd654cdc758d7ecb944bf20a103c3ba439e82a1f14a14e"
+    },
+    {
+      "file": "assets/screenshots/step-03-provider-name-flow.png",
+      "source_pdf_page": 11,
+      "figure": "3.9",
+      "source_caption": "Name it WordPress SAML and pick the explicit-consent flow. That flow is why you see a Continue screen in Step 8.",
+      "dimensions_px": [
+        1300,
+        352
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "56656708b42f85a65f9625e3342919dde28edd6bd215cfef43b398f2b1a9169b"
+    },
+    {
+      "file": "assets/screenshots/step-03-acs-audience.png",
+      "source_pdf_page": 11,
+      "figure": "3.10",
+      "source_caption": "ACS URL is where Authentik posts the assertion. Audience is the SP Entity ID, so WordPress knows the assertion was meant for it.",
+      "dimensions_px": [
+        1300,
+        384
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "111b91a8e4264531721bf997e886ca7b5231d48f6078b9a28707fdb394da1fc2"
+    },
+    {
+      "file": "assets/screenshots/step-03-signing-assertions.png",
+      "source_pdf_page": 12,
+      "figure": "3.12",
+      "source_caption": "Authentik signs the assertion with this certificate, and WordPress checks that signature before it lets anyone in. Both are set for you.",
+      "dimensions_px": [
+        1300,
+        376
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "91ccb51c1600c9c5d322f16afd7c8fe918d134194802b3338899161b15ae4498"
+    },
+    {
+      "file": "assets/screenshots/step-03-nameid-mapping.png",
+      "source_pdf_page": 12,
+      "figure": "3.13",
+      "source_caption": "The seven default mappings are already selected. The one you must change is NameID, which ships blank.",
+      "dimensions_px": [
+        1300,
+        611
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "b1affc5588fe33fefcc2429ab9c5397940bfec9fc3c743c25289e6954c6379b5"
+    },
+    {
+      "file": "assets/screenshots/step-03-issuer-binding.png",
+      "source_pdf_page": 12,
+      "figure": "3.14",
+      "source_caption": "Leave the override empty so Authentik uses its own Entity ID. Post is already selected.",
+      "dimensions_px": [
+        1300,
+        376
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "2bef9152f78e92007e16f7dc51739186442193340bbdcb3175bcd3c26048a2ed"
+    },
+    {
+      "file": "assets/screenshots/step-04-application-create.png",
+      "source_pdf_page": 14,
+      "figure": "3.19",
+      "source_caption": "Fix the slug to wordpress, pick the provider, and click Create Application.",
+      "dimensions_px": [
+        1300,
+        746
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "3e158f42c43e6bb165b7cd4cab359d1aec39e414e5a7b74bb617eee8c54400ee"
+    },
+    {
+      "file": "assets/screenshots/step-04-launch-url-blank.png",
+      "source_pdf_page": 15,
+      "figure": "3.20",
+      "source_caption": "Launch URL is under UI settings, further down the form. Leave it empty. This is what makes the tile start SSO.",
+      "dimensions_px": [
+        1300,
+        166
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "96294d2b047b0552b385b10a88fda0a88974f003bf93850e8838d7f0bc38c5d3"
+    },
+    {
+      "file": "assets/screenshots/step-04-application-linked.png",
+      "source_pdf_page": 16,
+      "figure": "3.21",
+      "source_caption": "WordPress is listed and its Provider column reads WordPress SAML. An empty Provider column means the two aren't linked.",
+      "dimensions_px": [
+        1300,
+        337
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "37edd0552024d903b6a236b83c3e46bf30ba9dff33acab0a999712eb5767dcdb"
+    },
+    {
+      "file": "assets/screenshots/step-05-idp-metadata-download.png",
+      "source_pdf_page": 18,
+      "figure": "3.24",
+      "source_caption": "Download the metadata as a file. It carries the SSO URL, Entity ID and certificate in one go.",
+      "dimensions_px": [
+        1300,
+        520
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Shows public IdP metadata XML including a signature reference. No secrets. No redaction required.",
+      "sha256": "8103c6fa51aaaface70e540be4f7b3ad519ec5c753652151cf101ee65524b84b"
+    },
+    {
+      "file": "assets/screenshots/step-05-idp-saml-configuration.png",
+      "source_pdf_page": 18,
+      "figure": "3.25",
+      "source_caption": "This card holds the same values as the file. Use it if you copy by hand.",
+      "dimensions_px": [
+        1300,
+        499
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "39552f835a1326fa58ae5e8e8767b04782351c8e791ce0e749892ac02ace70c0"
+    },
+    {
+      "file": "assets/screenshots/step-06-custom-idp.png",
+      "source_pdf_page": 20,
+      "figure": "3.27",
+      "source_caption": "Authentik isn't in the grid. Custom IDP works with any SAML 2.0 identity provider.",
+      "dimensions_px": [
+        1300,
+        606
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "47b8beffa684a288c6e9201f8abc18e83d048532ce63a87a0d95ce0af153a369"
+    },
+    {
+      "file": "assets/screenshots/step-06-idp-metadata-saved.png",
+      "source_pdf_page": 21,
+      "figure": "3.30",
+      "source_caption": "Identity Provider details saved successfully, with the fields filled in from the file.",
+      "dimensions_px": [
+        1000,
+        859
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Shows the public X.509 signing certificate (public key material, not a secret). No redaction required.",
+      "sha256": "483c302c0264f1b06e934c5dfbd85d0d9a1fcc8d1e0f9a63733c540ad37fbee0"
+    },
+    {
+      "file": "assets/screenshots/step-07-create-test-user.png",
+      "source_pdf_page": 23,
+      "figure": "3.35",
+      "source_caption": "Fill these in and click Create. The email becomes the WordPress username in Step 8.",
+      "dimensions_px": [
+        1300,
+        746
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Example test identity on reserved example.com domain. No password shown.",
+      "sha256": "19fe1fa29011953c6e9d41f17c9300abaff95c72639c13197c7343587c3d3334"
+    },
+    {
+      "file": "assets/screenshots/step-07-user-binding.png",
+      "source_pdf_page": 25,
+      "figure": "3.41",
+      "source_caption": "Your test user is listed. From now on, users this binding doesn't cover can't open WordPress.",
+      "dimensions_px": [
+        1300,
+        474
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "d29ec4dcaaa1fbe21583f8b538ef408c7cac8ac51d295ffa5ff987e2998489b1"
+    },
+    {
+      "file": "assets/screenshots/step-07-nameid-preview.png",
+      "source_pdf_page": 26,
+      "figure": "3.42",
+      "source_caption": "The NameID attribute should be the user's email. If it's a long string of letters and numbers, go back and set NameID Property Mapping.",
+      "dimensions_px": [
+        1300,
+        700
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "4d1af70ca169eeb4b55792f6380037e41b36e8a1a47a8605eff9122167a8cce3"
+    },
+    {
+      "file": "assets/screenshots/step-08-test-user-login.png",
+      "source_pdf_page": 27,
+      "figure": "3.44",
+      "source_caption": "Log in as the test user, not admin, so you test what a normal user gets.",
+      "dimensions_px": [
+        1168,
+        920
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Username only; no password entered or shown.",
+      "sha256": "33c1d3ed66f36e968ad5bcfb1724cf0e85a853a2c7656bbb9bd744779068c5c6"
+    },
+    {
+      "file": "assets/screenshots/step-08-portal-tile.png",
+      "source_pdf_page": 28,
+      "figure": "3.46",
+      "source_caption": "Click the tile. This starts SSO from the identity provider side.",
+      "dimensions_px": [
+        1300,
+        606
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "deca946f5931d6276f0ee66d0ae0bebea7131d1b243792f075d4ab230fcd17be"
+    },
+    {
+      "file": "assets/screenshots/step-08-consent.png",
+      "source_pdf_page": 29,
+      "figure": "3.47",
+      "source_caption": "This is the explicit-consent flow from Step 3 asking before it sends your identity to WordPress.",
+      "dimensions_px": [
+        1168,
+        1080
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "8a8f5f4c0d680651fd03916b2288b1f68453b59f81c1ae2e6515b4877436aff9"
+    },
+    {
+      "file": "assets/screenshots/step-08-sso-landing.png",
+      "source_pdf_page": 29,
+      "figure": "3.48",
+      "source_caption": "You land on the site, already logged in. The toolbar shows your test user. One login at Authentik, one",
+      "dimensions_px": [
+        1300,
+        379
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "48acb8bdda5cfe598fb014300a3e0583df810eab6eba1c7adf0af3db3533b54e"
+    },
+    {
+      "file": "assets/screenshots/step-08-jit-user-created.png",
+      "source_pdf_page": 29,
+      "figure": "3.49",
+      "source_caption": "The test user now has a WordPress account that didn't exist five minutes ago. Username and email are both the email address.",
+      "dimensions_px": [
+        1300,
+        436
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Example accounts on reserved example.com domain only.",
+      "sha256": "be04a09f940147a075049b20e2e3b3ef65c642d41c5e13832fb6f8d0d8ba8bdb"
+    },
+    {
+      "file": "assets/screenshots/evidence-provider-before-application.png",
+      "source_pdf_page": 16,
+      "figure": "3.22",
+      "source_caption": "Before the application exists, the provider warns it isn't used and has no Metadata tab. That's why this step comes first.",
+      "dimensions_px": [
+        1300,
+        678
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "62dd238d74434a40ebb3733d0e8ba68d7454aadd511c8405e2920c12ba76d545"
+    },
+    {
+      "file": "assets/screenshots/troubleshoot-network-400.png",
+      "source_pdf_page": 31,
+      "figure": "3.50",
+      "source_caption": "Network tab in the browser dev tools. The failed Create is the red saml/ row with status 400.",
+      "dimensions_px": [
+        1300,
+        433
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "1b9010551f4aa633c700a205bec0954699a75987bde9ff57d1787481e1e40e76"
+    },
+    {
+      "file": "assets/screenshots/troubleshoot-api-response.png",
+      "source_pdf_page": 32,
+      "figure": "3.51",
+      "source_caption": "The Response tab names the exact field. Here a provider with this name already exists.",
+      "dimensions_px": [
+        1300,
+        433
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "ec5a8c16947b8cfbc55d2663a4d4e8903585d37a4f1f2c2f95bd105d8bae3257"
+    },
+    {
+      "file": "assets/screenshots/troubleshoot-wpsamlerr011.png",
+      "source_pdf_page": 34,
+      "figure": "3.52",
+      "source_caption": "WPSAMLERR011 means the NameID was too long for a WordPress username. Set NameID to the Email mapping and it goes away.",
+      "dimensions_px": [
+        1300,
+        340
+      ],
+      "cropping": "None. Embedded image extracted at native resolution; aspect ratio preserved.",
+      "redaction": "None required.",
+      "sensitive_content_review": "Reviewed: placeholder addresses only (SERVER_IP, WP_PORT, AUTHENTIK_PORT); no credentials, tokens or secrets.",
+      "sha256": "4187ad3b10c62654d40276c7f72103e6b3fc50199ae95268dcbf5abf5fd28f36"
+    }
+  ],
+  "diagrams": [
+    {
+      "file": "assets/project-banner.png",
+      "type": "Banner",
+      "method": "Generated deterministically with Python/Pillow (no AI artwork).",
+      "sha256": "00925a3bfa3b9fa199835714e0a7b9eee7eac069dd865c44f3a830e0f759b9fb"
+    }
+  ],
+  "mermaid_diagrams": [
+    {
+      "location": "README.md, Architecture / Workflow section (first mermaid block)",
+      "type": "Architecture diagram",
+      "content": "Authentik IdP, user browser and WordPress SP; IdP-initiated sign-on with browser-mediated HTTP-POST assertion delivery; configuration-time trust exchange (SP values and IdP metadata).",
+      "method": "Mermaid flowchart written as text in README.md; rendered natively by GitHub and editable as text."
+    },
+    {
+      "location": "README.md, Architecture / Workflow section (second mermaid block)",
+      "type": "Workflow diagram",
+      "content": "Nine-step configuration order from plugin installation through SSO test and JIT validation.",
+      "method": "Mermaid flowchart written as text in README.md; rendered natively by GitHub and editable as text."
+    }
+  ],
+  "excluded_figures": [
+    {
+      "figure": "3.1",
+      "source_pdf_page": 5,
+      "source_caption": "You start in WordPress, because the plugin decides which ACS URL and Entity ID Authentik needs.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.3",
+      "source_pdf_page": 6,
+      "source_caption": "Install Now turns into Activate. Nothing shows in the admin menu until you click it.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.4",
+      "source_pdf_page": 6,
+      "source_caption": "Close this popup with the ×. You configure Authentik as a Custom IDP later, not from this list.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.7",
+      "source_pdf_page": 10,
+      "source_caption": "You create the provider first, on its own, so you can see every SAML setting in one form.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.8",
+      "source_pdf_page": 11,
+      "source_caption": "Pick SAML Provider. The form opens straight away.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.11",
+      "source_pdf_page": 12,
+      "source_caption": "Already filled in. Check it reads default-provider-invalidation-flow and move on.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.15",
+      "source_pdf_page": 13,
+      "source_caption": "Create sits in the footer of the window, so it's visible wherever you've scrolled.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.16",
+      "source_pdf_page": 13,
+      "source_caption": "A duplicate name. The field that failed is marked in red, with the reason underneath.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.17",
+      "source_pdf_page": 13,
+      "source_caption": "The message at the bottom left of the screen says the same thing.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.18",
+      "source_pdf_page": 14,
+      "source_caption": "Click the small arrow, not the words New Application. Then pick with Existing Provider.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.23",
+      "source_pdf_page": 17,
+      "source_caption": "Open the provider you built in Step 3.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.26",
+      "source_pdf_page": 19,
+      "source_caption": "This tab is where you describe Authentik to WordPress.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.28",
+      "source_pdf_page": 20,
+      "source_caption": "Open Upload IDP Metadata, name the IdP Authentik, and pick the XML file from Step 5.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.29",
+      "source_pdf_page": 20,
+      "source_caption": "Upload the file. The plugin reads the Entity ID, login URL and certificate out of it for you.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.31",
+      "source_pdf_page": 21,
+      "source_caption": "After a reload the values are still there. A blank field here means it didn't save.",
+      "reason": "Not used: near-duplicate of Figure 3.30 (configuration after reload)."
+    },
+    {
+      "figure": "3.32",
+      "source_pdf_page": 22,
+      "source_caption": "A clipped certificate is refused on Save with Invalid certificate, so you find out here and not at Step 8.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.33",
+      "source_pdf_page": 23,
+      "source_caption": "New User opens a short wizard.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.34",
+      "source_pdf_page": 23,
+      "source_caption": "Pick Internal User and the next screen opens straight away.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.36",
+      "source_pdf_page": 24,
+      "source_caption": "There's no password field on the form. Open the new user and set it here.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.37",
+      "source_pdf_page": 24,
+      "source_caption": "Pick a password you'll remember, then click Set Password. You log in with it in Step 8.",
+      "reason": "Excluded: password-set dialog. Not needed and avoids credential-entry screens."
+    },
+    {
+      "figure": "3.38",
+      "source_pdf_page": 24,
+      "source_caption": "Bindings decide who can open WordPress from Authentik.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.39",
+      "source_pdf_page": 24,
+      "source_caption": "Choose Bind a user. The form opens as soon as you click it.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.40",
+      "source_pdf_page": 25,
+      "source_caption": "Pick your test user and click Create.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.43",
+      "source_pdf_page": 27,
+      "source_caption": "Log out of WordPress first. An admin session left open hides a broken SSO flow.",
+      "reason": "Not used: step is described in text, or a selected screenshot already covers it."
+    },
+    {
+      "figure": "3.45",
+      "source_pdf_page": 28,
+      "source_caption": "MFA from Lab 2 still applies. A user with no authenticator enrolls during this login. Scan the QR, enter the code, and carry on.",
+      "reason": "Excluded: TOTP/MFA enrollment screen with a QR code (enrollment secret). Not republished in any form."
+    }
+  ]
+}
